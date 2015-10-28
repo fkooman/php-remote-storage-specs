@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.6%{?dist}
+Release:    0.7%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -83,8 +83,8 @@ Requires:   php-composer(fkooman/tpl-twig) >= 1.0.0
 Requires:   php-composer(fkooman/tpl-twig) < 2.0.0
 Requires:   php-composer(symfony/class-loader)
 
-Requires(post): policycoreutils-python
-Requires(postun): policycoreutils-python
+Requires(post): %{_sbindir}/semanage
+Requires(postun): %{_sbindir}/semanage
 
 %description
 This is a remoteStorage server implementation written in PHP. It aims at 
@@ -152,6 +152,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Wed Oct 28 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.7
+- fix semanage requirement
+
 * Tue Oct 27 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.6
 - update to 93b38d15c1be4de8cee5b8f1ec60ee7f444210df
 
