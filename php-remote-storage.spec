@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           93b38d15c1be4de8cee5b8f1ec60ee7f444210df
+%global github_commit           1eba7ca0f71b0cf287eee26cfb35164c1d8c4de7
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.7%{?dist}
+Release:    0.11%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -152,6 +152,18 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.11
+- update to 1eba7ca0f71b0cf287eee26cfb35164c1d8c4de7
+
+* Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.10
+- update to fdaf628312807f40f5f4339730bf6d3cfaffd228
+
+* Mon Nov 02 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.9
+- update to 4f5dbdc615f70187b26757f234af3b7ed37cbce6
+
+* Mon Nov 02 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.8
+- update to e72cd9f7db94a53acc0218d5eaec9bb0f2726d08
+
 * Wed Oct 28 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.7
 - fix semanage requirement
 
