@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           1eba7ca0f71b0cf287eee26cfb35164c1d8c4de7
+%global github_commit           a7276b10472c0e02faf2ba30b902b4cf774c1c31
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.11%{?dist}
+Release:    0.12%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -44,8 +44,8 @@ BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
 BuildRequires:  php-composer(fkooman/json) >= 1.0.0
 BuildRequires:  php-composer(fkooman/json) < 2.0.0
-BuildRequires:  php-composer(fkooman/oauth) >= 3.0.0
-BuildRequires:  php-composer(fkooman/oauth) < 4.0.0
+BuildRequires:  php-composer(fkooman/oauth) >= 4.0.0
+BuildRequires:  php-composer(fkooman/oauth) < 5.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-bearer) >= 1.0.0
@@ -69,8 +69,8 @@ Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
 Requires:   php-composer(fkooman/json) >= 1.0.0
 Requires:   php-composer(fkooman/json) < 2.0.0
-Requires:   php-composer(fkooman/oauth) >= 3.0.0
-Requires:   php-composer(fkooman/oauth) < 4.0.0
+Requires:   php-composer(fkooman/oauth) >= 4.0.0
+Requires:   php-composer(fkooman/oauth) < 5.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
@@ -152,6 +152,9 @@ fi
 %license agpl-3.0.txt
 
 %changelog
+* Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.12
+- update to a7276b10472c0e02faf2ba30b902b4cf774c1c31
+
 * Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.11
 - update to 1eba7ca0f71b0cf287eee26cfb35164c1d8c4de7
 
