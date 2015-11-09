@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-remote-storage
-%global github_commit           a7276b10472c0e02faf2ba30b902b4cf774c1c31
+%global github_commit           7dfa9333f11764383345af5c71f02a30b4a395bc
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-remote-storage
 Version:    1.0.0
-Release:    0.12%{?dist}
+Release:    0.14%{?dist}
 Summary:    remoteStorage server written in PHP
 
 Group:      Applications/Internet
@@ -38,8 +38,8 @@ BuildRequires:  php-pdo
 BuildRequires:  php-spl
 BuildRequires:  php-composer(fkooman/http) >= 1.0.0
 BuildRequires:  php-composer(fkooman/http) < 2.0.0
-BuildRequires:  php-composer(fkooman/ini) >= 1.0.0
-BuildRequires:  php-composer(fkooman/ini) < 2.0.0
+BuildRequires:  php-composer(fkooman/config) >= 1.0.0
+BuildRequires:  php-composer(fkooman/config) < 2.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
 BuildRequires:  php-composer(fkooman/json) >= 1.0.0
@@ -63,8 +63,8 @@ Requires:   php-pdo
 Requires:   php-spl
 Requires:   php-composer(fkooman/http) >= 1.0.0
 Requires:   php-composer(fkooman/http) < 2.0.0
-Requires:   php-composer(fkooman/ini) >= 1.0.0
-Requires:   php-composer(fkooman/ini) < 2.0.0
+Requires:   php-composer(fkooman/config) >= 1.0.0
+Requires:   php-composer(fkooman/config) < 2.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
 Requires:   php-composer(fkooman/json) >= 1.0.0
@@ -113,7 +113,7 @@ cp -pr bin/* ${RPM_BUILD_ROOT}%{_bindir}
 
 # Config
 mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}
-cp -p config/server.ini.example ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/server.ini
+cp -p config/server.yaml.example ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/server.yaml
 ln -s ../../../etc/%{name} ${RPM_BUILD_ROOT}%{_datadir}/%{name}/config
 
 # Data
@@ -140,7 +140,7 @@ fi
 %defattr(-,root,root,-)
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
 %dir %attr(-,apache,apache) %{_sysconfdir}/%{name}
-%config(noreplace) %attr(0600,apache,apache) %{_sysconfdir}/%{name}/server.ini
+%config(noreplace) %attr(0600,apache,apache) %{_sysconfdir}/%{name}/server.yaml
 %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/src
@@ -148,10 +148,17 @@ fi
 %{_datadir}/%{name}/views
 %{_datadir}/%{name}/config
 %dir %attr(0700,apache,apache) %{_localstatedir}/lib/%{name}
-%doc README.md CHANGES.md composer.json config/server.ini.example
+%doc README.md CHANGES.md composer.json config/server.yaml.example
 %license agpl-3.0.txt
 
 %changelog
+* Mon Nov 09 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.14
+- update to 7dfa9333f11764383345af5c71f02a30b4a395bc
+- config changed to yaml
+
+* Thu Nov 05 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.13
+- update to bc9ba1e8a7775c2674197ac22aaa14c41bc332b6
+
 * Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.12
 - update to a7276b10472c0e02faf2ba30b902b4cf774c1c31
 

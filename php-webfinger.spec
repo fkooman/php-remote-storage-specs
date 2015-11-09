@@ -4,12 +4,12 @@
 
 %global github_owner            fkooman
 %global github_name             php-webfinger
-%global github_commit           f3404984d6dcd14bdfad5dc73e32bb43d3807d57
+%global github_commit           2192610af18d6e77e1744f94ddc4f892f7a135c6
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 
 Name:       php-webfinger
 Version:    1.0.0
-Release:    0.4%{?dist}
+Release:    0.5%{?dist}
 Summary:    WebFinger server written in PHP
 
 Group:      Applications/Internet
@@ -69,6 +69,9 @@ ln -s ../../../etc/%{name} ${RPM_BUILD_ROOT}%{_datadir}/%{name}/config
 %license agpl-3.0.txt
 
 %changelog
+* Thu Nov 05 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.5
+- update to 2192610af18d6e77e1744f94ddc4f892f7a135c6
+
 * Tue Oct 27 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.4
 - update to f3404984d6dcd14bdfad5dc73e32bb43d3807d57
 
